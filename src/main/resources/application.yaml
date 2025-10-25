@@ -1,0 +1,30 @@
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: moviemania
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/moviedb
+    username: admin
+    password: admin123
+  flyway:
+    url: jdbc:postgresql://localhost:5432/moviedb
+    user: admin
+    password: admin123
+    enabled: true
+    baseline-on-migrate: true
+    fail-on-missing-locations: true
+    validate-on-migrate: true
+    clean-disabled: true
+  graphql:
+    graphiql:
+      enabled: true  # enables /graphiql UI
+
+server:
+  port: 8081
+#logging:
+#  level:
+#    org.springframework.r2dbc.core: DEBUG
+#    org.springframework.r2dbc.connection: DEBUG
+#    io.r2dbc.postgresql: DEBUG
+#    org.flywaydb: DEBUG

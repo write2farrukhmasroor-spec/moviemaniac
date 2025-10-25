@@ -1,0 +1,22 @@
+type Movie {
+    id:ID,
+    movieName:String,
+    movieDescription: String,
+    rating: Int
+}
+
+type Query {
+    movieById(id:ID): Movie,
+    allMovies :[Movie]
+}
+
+input MovieReq{
+    movieName: String,
+    movieDescription: String,
+    rating: Int
+}
+
+type Mutation{
+    addMovie(movie:MovieReq):String
+    deleteMovie(id:ID):Boolean
+}
