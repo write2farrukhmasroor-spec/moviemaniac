@@ -2,7 +2,26 @@ type Movie {
     id:ID,
     movieName:String,
     movieDescription: String,
-    rating: Int
+    rating: Int,
+    movieCast:Cast,
+    genre:Genre
+}
+
+enum Genre {
+    SUSPENSE,
+    HORROR,
+    COMEDY,
+    ACTION,
+    DRAMA,
+    BIOGRAPHY
+}
+
+type Cast{
+    actors:[String]
+     actress:[String]
+
+    directors:[String]
+    producer:String
 }
 
 type Query {
@@ -10,10 +29,19 @@ type Query {
     allMovies :[Movie]
 }
 
+input CastReq{
+    actors:[String]
+    actress:[String]
+
+    directors:[String]
+    producer:String
+}
 input MovieReq{
     movieName: String,
     movieDescription: String,
-    rating: Int
+    rating: Int,
+    genre:Genre,
+    movieCast:CastReq
 }
 
 type Mutation{
